@@ -50,7 +50,7 @@ todoRouter.delete('/:idToDelete', (req,res)=>{
     console.log(listID);
     const sqlQuery = `
         DELETE FROM list
-            WHERE "id"=$1;
+            WHERE id = $1;
     `
     const sqlValues = [listID];
     pool.query(sqlQuery, sqlValues)
@@ -63,6 +63,25 @@ todoRouter.delete('/:idToDelete', (req,res)=>{
         })
 })
 
+//PUT
+todoRouter.put('/:idToUpdate', (req,res) => {
+    console.log(req.params);
+    let idToUpdate = req.params.idToUpdate;
+
+    let sqlQuery = `UPDATE list
+                        SET complete = NOT complete
+                        WHERE id = $1;`
+
+    let sqlValues = [idToUpdate];
+
+    pool.query(sqlQuery,sqlValues)
+        .then((dbRes) => {
+            res.sendStatus(200);
+        })
+        .catch((dbErr) => {
+        res.sendStatus('error is',dbErr);
+        })
+    })
 
 // export
 module.exports = todoRouter;

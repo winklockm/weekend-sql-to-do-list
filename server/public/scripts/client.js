@@ -10,6 +10,8 @@ function onReady(){
 	$('#submitButton').on('click', getInput)
 	// click listener for delete buttons
 	$(document).on('click', '.deleteButton', getDeleteID);
+	// click event for checkbox
+	$(document).on('click', '.checkbox', getPutID);
 }
 
 function getInput() {
@@ -63,19 +65,40 @@ function renderList(list) {
 	console.log('in renderList function');
 	// clear existing display to avoid duplicates
 	$('#listDisplay').empty();
-	// .then loop through the array received
+	// loop through the array received
 	// append a new row for each
-
 	for(item of list) {
-		$('#listDisplay').append(`
-        <tr data-id=${item.id}>
-			<td class="checkbox">✅ ${item.complete}</td>
-        	<td>${item.task}</td>
-			<td class="deleteCell"> 
-			<button class="deleteButton">🗑</button>
-			</td>
-        </tr>
-      `);
+		let id = item.id;
+		let completed = item.complete;
+		console.log(`${id} is ${completed}`);
+			// if completed display checked box
+			// if uncompleted display unchecked box
+			if(completed) {
+				$('#listDisplay').append(`
+				<tr data-id=${item.id}>
+					<td class="checkCell">
+						<input class="checkbox" type="checkbox" checked>
+					</td>
+					<td>${item.task}</td>
+					<td class="deleteCell"> 
+					<button class="deleteButton">🗑</button>
+					</td>
+				</tr>
+			  `)
+			}
+			else {
+				$('#listDisplay').append(`
+				<tr data-id=${item.id}>
+					<td class="checkCell">
+						<input class="checkbox" type="checkbox">
+					</td>
+					<td>${item.task}</td>
+					<td class="deleteCell"> 
+					<button class="deleteButton">🗑</button>
+					</td>
+				</tr>
+			  `)
+			}
     }
 }
 
@@ -93,6 +116,27 @@ function deleteItem(taskID) {
 		url: `/list/${taskID}`
 	}).then((response) => {
 		console.log('successfully deleted item', response);
+		getList();
+	}).catch((error) => {
+		console.log('Error:', error);
+	})
+}
+
+function getPutID() {
+	console.log('in getPutID');
+	// get ID to update
+	let idToUpdate = $(this).closest('tr').data('id');
+	// call updateComplete function for idToUpdate
+	updateComplete(idToUpdate);
+}
+
+function updateComplete(idToUpdate) {
+	console.log('in updateComplete function');
+	$.ajax({
+		method: 'PUT',
+		url: `/list/${idToUpdate}`
+	}).then((response) => {
+		console.log('successfully updated item', response);
 		getList();
 	}).catch((error) => {
 		console.log('Error:', error);
