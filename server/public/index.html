@@ -10,6 +10,27 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <h1>To Do App</h1>
+    <header>
+        <h1>To Do App</h1>
+    </header>
+    <main>
+        <div id="listDiv">
+            <table id="taskTable">
+                <tr class="inputRow">
+                  <td id="completeCell">✅</td>
+                  <td id="taskCell"> 
+                    <input id="taskInput" type="text" placeholder="task">
+                  </td>
+                  <td id="submitCell">
+                    <button id="submitButton">Add</button>
+                  </td>
+                  <td id="deleteCell"> 
+                    <button id="deleteButton">🗑</button>
+                  </td>
+                </tr>
+                <!-- append new task rows here -->
+              </table>
+        </div>
+    </main>
 </body>
 </html>
