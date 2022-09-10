@@ -4,9 +4,12 @@ $(document).ready(onReady);
 	
 function onReady(){
 	console.log('JQ')
+	// show list when page loads
+	$(document).ready(getList);
 	// click listener for add button
 	$('#submitButton').on('click', getInput)
-	$(document).ready(getList);
+	// click listener for delete buttons
+	$(document).on('click', '.deleteButton', getDeleteID);
 }
 
 function getInput() {
@@ -74,4 +77,24 @@ function renderList(list) {
         </tr>
       `);
     }
+}
+
+function getDeleteID(){
+	console.log('in getDeleteID function');
+	let idToDelete = $(this).closest('tr').data('id');
+	console.log('delete row with id:', idToDelete);
+	// call deleteItem function
+	deleteItem(idToDelete);
+}
+
+function deleteItem(taskID) {
+	$.ajax({
+		method: 'DELETE',
+		url: `/list/${taskID}`
+	}).then((response) => {
+		console.log('successfully deleted item', response);
+		getList();
+	}).catch((error) => {
+		console.log('Error:', error);
+	})
 }

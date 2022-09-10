@@ -43,6 +43,26 @@ todoRouter.post('/', (req, res) => {
         });
 })
 
+// DELETE
+todoRouter.delete('/:idToDelete', (req,res)=>{
+    console.log(req.params);
+    let listID = req.params.idToDelete;
+    console.log(listID);
+    const sqlQuery = `
+        DELETE FROM list
+            WHERE "id"=$1;
+    `
+    const sqlValues = [listID];
+    pool.query(sqlQuery, sqlValues)
+        .then((poolRes)=>{
+            res.sendStatus(200);
+        })
+        .catch((poolErr)=>{
+            console.log('Error deleting item', poolErr);
+            res.sendStatus(500); // Good server always responds
+        })
+})
+
 
 // export
 module.exports = todoRouter;
