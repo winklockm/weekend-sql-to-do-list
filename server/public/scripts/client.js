@@ -19,11 +19,25 @@ function getInput() {
 
 function addTask(newTask) {
 	console.log('in addTask function');
-	// addTask function
+	// create object
+	let newListItem = {
+		complete: false,
+		task: newTask
+	}
 	// POST request to send newTask to database
-	// .then clear input
-	// trigger renderList function
-	getList();
+	$.ajax({
+		type: 'POST',
+		url: '/list',
+		data: newListItem
+	}).then((postResponse) => {
+		console.log('POST to /list successful', postResponse);
+		// clear inputs
+		$('#taskInput').val('');
+		// call getList function
+		getList();
+	}).catch((error) => {
+		console.log('The POST to /list was unsuccessful:', error);
+	  });
 }
 
 function getList() {
@@ -44,7 +58,8 @@ function getList() {
 
 function renderList(list) {
 	console.log('in renderList function');
-	
+	// clear existing display to avoid duplicates
+	$('#listDisplay').empty();
 	// .then loop through the array received
 	// append a new row for each
 
@@ -59,4 +74,4 @@ function renderList(list) {
         </tr>
       `);
     }
-	}
+}
