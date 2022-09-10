@@ -9,8 +9,8 @@ const database = "weekend-to-do-app";
 
 // how DB connection is created/configured
 const pool = new Pool ({
-    database: host,
-    host: database
+    database: database,
+    host: host
 })
 
 pool.on('connect', ()=> {
