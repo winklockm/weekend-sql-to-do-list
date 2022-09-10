@@ -25,5 +25,24 @@ pool.query(sqlQuery)
     })
 })
 
+// POST
+todoRouter.post('/', (req, res) => {
+    let newItem =  req.body;
+    console.log('Adding new item', newItem);
+    let queryText = `
+        INSERT INTO list (complete, task)
+            VALUES ($1, $2);
+    `;
+    pool.query(queryText, [newItem.complete, newItem.task])
+        .then((postResponse) => {
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log('Error adding new item:', error);
+            res.sendStatus(500);
+        });
+})
+
+
 // export
 module.exports = todoRouter;
