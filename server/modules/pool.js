@@ -4,13 +4,13 @@ const pg = require('pg');
 // Persistent connection to a database:
 const Pool = pg.Pool;
 
-const host = "todo_list";
-const database = "localhost";
+const host = "localhost";
+const database = "weekend-to-do-app";
 
 // how DB connection is created/configured
 const pool = new Pool ({
-    database: host,
-    host: database
+    database: database,
+    host: host
 })
 
 pool.on('connect', ()=> {
