@@ -14,9 +14,6 @@ function onReady(){
 	$(document).on('click', '.checkbox', getPutID);
 }
 
-// when a checkbox is clicked (class of checkbox )
-// trigger getPutID
-
 function getInput() {
 	console.log('in getInput function');
 	// pull values from input and set as variable
@@ -86,7 +83,7 @@ function renderList(list) {
 					</td>
 					<td>${item.task}</td>
 					<td class="deleteCell"> 
-					<button class="deleteButton">🗑</button>
+					<button type="button" class="deleteButton btn btn-light">🗑</button>
 					</td>
 				</tr>
 			  `)
@@ -99,7 +96,7 @@ function renderList(list) {
 					</td>
 					<td>${item.task}</td>
 					<td class="deleteCell"> 
-					<button class="deleteButton">🗑</button>
+					<button type="button" class="deleteButton btn btn-light">🗑</button>
 					</td>
 				</tr>
 			  `)
