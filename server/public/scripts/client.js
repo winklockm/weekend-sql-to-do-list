@@ -14,6 +14,9 @@ function onReady(){
 	$(document).on('click', '.checkbox', getPutID);
 }
 
+// when a checkbox is clicked (class of checkbox )
+// trigger getPutID
+
 function getInput() {
 	console.log('in getInput function');
 	// pull values from input and set as variable
@@ -77,7 +80,9 @@ function renderList(list) {
 				$('#listDisplay').append(`
 				<tr data-id=${item.id}>
 					<td class="checkCell">
-						<input class="checkbox" type="checkbox" checked>
+						<div class="form-check">
+							<input class="form-check-input checkbox" type="checkbox" checked>
+						</div>
 					</td>
 					<td>${item.task}</td>
 					<td class="deleteCell"> 
@@ -142,3 +147,6 @@ function updateComplete(idToUpdate) {
 		console.log('Error:', error);
 	})
 }
+
+// when a checkbox is clicked (class of checkbox )
+// trigger getPutID

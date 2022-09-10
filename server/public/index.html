@@ -7,7 +7,8 @@
     <title>To Do</title>
     <script src="vendors/jquery.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="'utf-8"></script>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="styles/styles.css"> -->
 </head>
 <body>
     <header>
@@ -15,16 +16,21 @@
     </header>
     <main>
         <div id="listDiv">
-            <table id="taskTable">
-                <tr id="inputRow">
-                  <td></td>
-                  <td id="taskInputCell"> 
-                    <input id="taskInput" type="text" placeholder="task">
-                  </td>
-                  <td id="submitCell">
-                    <button id="submitButton">Add</button>
-                  </td>
-                </tr>
+            <table class="table table-striped table-hover" id="taskTable">
+                <thead>
+
+
+                    <tr id="inputRow">
+                        <th scope="col"></th>
+                        <th scope="col" id="taskInputCell"> 
+                            <div class="input-group mb-3">
+                                <input type="text" id="taskInput" class="form-control" placeholder="Walk the dog" aria-label="New task" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-primary" type="button" id="submitButton">Add</button>
+                            </div>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
                 <tbody id="listDisplay">
                     <!-- append new task rows here -->
                 </tbody>
