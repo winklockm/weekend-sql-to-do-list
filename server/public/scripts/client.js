@@ -76,12 +76,14 @@ function renderList(list) {
 			if(completed) {
 				$('#listDisplay').append(`
 				<tr data-id=${item.id}>
-					<td class="checkCell">
-						<input class="checkbox" type="checkbox" checked>
+					<td>
+						<div class="form-check">
+							<input class="form-check-input checkbox" type="checkbox" checked>
+						</div>
 					</td>
 					<td>${item.task}</td>
 					<td class="deleteCell"> 
-					<button class="deleteButton">🗑</button>
+					<button type="button" class="deleteButton btn btn-light">🗑</button>
 					</td>
 				</tr>
 			  `)
@@ -89,12 +91,14 @@ function renderList(list) {
 			else {
 				$('#listDisplay').append(`
 				<tr data-id=${item.id}>
-					<td class="checkCell">
-						<input class="checkbox" type="checkbox">
+					<td>
+						<div class="form-check">
+							<input class="form-check-input center checkbox" type="checkbox">
+						</div>
 					</td>
 					<td>${item.task}</td>
 					<td class="deleteCell"> 
-					<button class="deleteButton">🗑</button>
+					<button type="button" class="deleteButton btn btn-light">🗑</button>
 					</td>
 				</tr>
 			  `)
