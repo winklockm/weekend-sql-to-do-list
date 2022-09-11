@@ -76,7 +76,7 @@ function renderList(list) {
 			if(completed) {
 				$('#listDisplay').append(`
 				<tr data-id=${item.id}>
-					<td class="checkCell">
+					<td>
 						<div class="form-check">
 							<input class="form-check-input checkbox" type="checkbox" checked>
 						</div>
@@ -91,8 +91,10 @@ function renderList(list) {
 			else {
 				$('#listDisplay').append(`
 				<tr data-id=${item.id}>
-					<td class="checkCell">
-						<input class="checkbox" type="checkbox">
+					<td>
+						<div class="form-check">
+							<input class="form-check-input center checkbox" type="checkbox">
+						</div>
 					</td>
 					<td>${item.task}</td>
 					<td class="deleteCell"> 
@@ -144,6 +146,3 @@ function updateComplete(idToUpdate) {
 		console.log('Error:', error);
 	})
 }
-
-// when a checkbox is clicked (class of checkbox )
-// trigger getPutID
