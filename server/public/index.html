@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -30,12 +30,105 @@
                     </tr>
                 </thead>
                 <tbody id="listDisplay">
-                  <!-- append table rows here -->
                 </tbody>
               </table>
         </div>
     </main>
-     <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vendors/jquery.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="'utf-8"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <h1>TO DO</h1>
+    </header>
+    <main>
+        
+
+
+        <div class="container">
+            <div class="row">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="taskInput" aria-describedby="inputField" placeholder="What do you need to do today?">
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox1">URGENT</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                        <label class="form-check-label" for="inlineCheckbox2">IMPORTANT</label>
+                      </div>
+                      <div>
+                        <button id="submitButton" type="submit" class="btn btn-primary">Add</button>
+                      </div>
+                  </form>
+            </div>
+
+            <div class="row">
+                
+                <div class="col-sm">
+                    <h2>Urgent & Important</h2>
+                    <div id="listDiv">
+                        <table class="table table-striped table-hover align-middle" id="taskTable">
+                            <tbody id="both">
+                                <!-- rows append here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="col-sm">
+                    <h2>Urgent & Not Important</h2>
+                    <div id="listDiv">
+                        <!-- rows append here -->
+                        <table class="table table-striped table-hover align-middle" id="taskTable">
+                            <tbody id="justUrgent">
+
+                            </tbody>
+                        </table>
+                        </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Important & Not Urgent</h2>
+                    <div id="listDiv">
+                        <table class="table table-striped table-hover align-middle" id="taskTable">
+                            <tbody id="justImportant">
+                                <!-- rows append here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    <h2>Not Urgent or Important</h2>
+                    <div id="listDiv">
+                        <table class="table table-striped table-hover align-middle" id="taskTable">
+                            <tbody id="neither">
+                                <!-- rows append here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

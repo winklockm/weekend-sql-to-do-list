@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0;
 }
 
@@ -10,4 +10,22 @@ h1 {
  .center {
     text-align:center;
     vertical-align:middle;
+ } */
+
+
+h1 {
+ text-align: center;
+ margin: 30px;
+}
+
+.col-sm {
+    padding: 1rem;
+    background-color: lightpink;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+ }
+
+ .form-group {
+    text-align: center;
  }

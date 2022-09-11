@@ -64,17 +64,22 @@ function getList() {
 function renderList(list) {
 	console.log('in renderList function');
 	// clear existing display to avoid duplicates
-	$('#listDisplay').empty();
+	$('#both').empty();
+	$('#justUrgent').empty();
+	$('#justImportant').empty();
+	$('#neither').empty();
 	// loop through the array received
 	// append a new row for each
 	for(item of list) {
 		let id = item.id;
 		let completed = item.complete;
+		let urgent = item.urgent;
+		let important = item.important;
 		console.log(`${id} is ${completed}`);
-			// if completed display checked box
-			// if uncompleted display unchecked box
+		// if urgent and important
+		if(urgent && important){
 			if(completed) {
-				$('#listDisplay').append(`
+				$('#both').append(`
 				<tr data-id=${item.id}>
 					<td>
 						<div class="form-check">
@@ -89,7 +94,7 @@ function renderList(list) {
 			  `)
 			}
 			else {
-				$('#listDisplay').append(`
+				$('#both').append(`
 				<tr data-id=${item.id}>
 					<td>
 						<div class="form-check">
@@ -103,6 +108,106 @@ function renderList(list) {
 				</tr>
 			  `)
 			}
+		}
+		// if urgent and not important
+		if(urgent && !important){
+			if(completed) {
+				$('#justUrgent').append(`
+				<tr data-id=${item.id}>
+					<td>
+						<div class="form-check">
+							<input class="form-check-input checkbox" type="checkbox" checked>
+						</div>
+					</td>
+					<td>${item.task}</td>
+					<td class="deleteCell"> 
+					<button type="button" class="deleteButton btn btn-light">🗑</button>
+					</td>
+				</tr>
+			  `)
+			}
+			else {
+				$('#justUrgent').append(`
+				<tr data-id=${item.id}>
+					<td>
+						<div class="form-check">
+							<input class="form-check-input center checkbox" type="checkbox">
+						</div>
+					</td>
+					<td>${item.task}</td>
+					<td class="deleteCell"> 
+					<button type="button" class="deleteButton btn btn-light">🗑</button>
+					</td>
+				</tr>
+			  `)
+			}
+		}
+		// if not urgent and important
+		if(!urgent && important){
+			if(completed) {
+				$('#justImportant').append(`
+				<tr data-id=${item.id}>
+					<td>
+						<div class="form-check">
+							<input class="form-check-input checkbox" type="checkbox" checked>
+						</div>
+					</td>
+					<td>${item.task}</td>
+					<td class="deleteCell"> 
+					<button type="button" class="deleteButton btn btn-light">🗑</button>
+					</td>
+				</tr>
+			  `)
+			}
+			else {
+				$('#justImportant').append(`
+				<tr data-id=${item.id}>
+					<td>
+						<div class="form-check">
+							<input class="form-check-input center checkbox" type="checkbox">
+						</div>
+					</td>
+					<td>${item.task}</td>
+					<td class="deleteCell"> 
+					<button type="button" class="deleteButton btn btn-light">🗑</button>
+					</td>
+				</tr>
+			  `)
+			}
+		}
+		// if not urgent and not important
+		if(!urgent && !important){
+			if(completed) {
+				$('#neither').append(`
+				<tr data-id=${item.id}>
+					<td>
+						<div class="form-check">
+							<input class="form-check-input checkbox" type="checkbox" checked>
+						</div>
+					</td>
+					<td>${item.task}</td>
+					<td class="deleteCell"> 
+					<button type="button" class="deleteButton btn btn-light">🗑</button>
+					</td>
+				</tr>
+			  `)
+			}
+			else {
+				$('#neither').append(`
+				<tr data-id=${item.id}>
+					<td>
+						<div class="form-check">
+							<input class="form-check-input center checkbox" type="checkbox">
+						</div>
+					</td>
+					<td>${item.task}</td>
+					<td class="deleteCell"> 
+					<button type="button" class="deleteButton btn btn-light">🗑</button>
+					</td>
+				</tr>
+			  `)
+			}
+		}
     }
 }
 

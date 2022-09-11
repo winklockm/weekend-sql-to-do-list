@@ -11,7 +11,7 @@ const pool = require('../modules/pool.js');
 todoRouter.get('/', (req, res) => {
     // get table data
     const sqlQuery = `
-      SELECT * FROM list
+      SELECT * FROM todoList
         ORDER BY "id" DESC;
     `
 pool.query(sqlQuery)
@@ -30,8 +30,8 @@ todoRouter.post('/', (req, res) => {
     let newItem =  req.body;
     console.log('Adding new item', newItem);
     let queryText = `
-        INSERT INTO list (complete, task)
-            VALUES ($1, $2);
+        INSERT INTO todoList (complete, urgent, important, task)
+            VALUES ($1, $2, $3, $4);
     `;
     pool.query(queryText, [newItem.complete, newItem.task])
         .then((postResponse) => {
@@ -49,7 +49,7 @@ todoRouter.delete('/:idToDelete', (req,res)=>{
     let listID = req.params.idToDelete;
     console.log(listID);
     const sqlQuery = `
-        DELETE FROM list
+        DELETE FROM todoList
             WHERE id = $1;
     `
     const sqlValues = [listID];
@@ -59,7 +59,7 @@ todoRouter.delete('/:idToDelete', (req,res)=>{
         })
         .catch((poolErr)=>{
             console.log('Error deleting item', poolErr);
-            res.sendStatus(500); // Good server always responds
+            res.sendStatus(500);
         })
 })
 
@@ -68,7 +68,7 @@ todoRouter.put('/:idToUpdate', (req,res) => {
     console.log(req.params);
     let idToUpdate = req.params.idToUpdate;
 
-    let sqlQuery = `UPDATE list
+    let sqlQuery = `UPDATE todoList
                         SET complete = NOT complete
                         WHERE id = $1;`
 
