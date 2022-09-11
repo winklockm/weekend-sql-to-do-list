@@ -5,8 +5,6 @@ const todoRouter = express.Router();
 // DB CONNECTION
 const pool = require('../modules/pool.js');
 
-// add code
-
 // get request
 todoRouter.get('/', (req, res) => {
     // get table data
