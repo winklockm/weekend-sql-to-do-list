@@ -21,14 +21,14 @@ function getInput() {
 	let isUrgent;
 	let isImportant;
 	// pull urgent value and set as variable
-	if($('#inlineCheckbox1').is(":checked")) {
+	if($('#checkUrgent').is(":checked")) {
 		isUrgent = true;
 	}
 	else{
 		isUrgent = false;
 	}
 	// pull important value and set as variable
-	if($('#inlineCheckbox2').is(":checked")) {
+	if($('#checkImportant').is(":checked")) {
 		isImportant = true;
 	}
 	else{
@@ -56,8 +56,11 @@ function addTask(newTask, isUrgent, isImportant) {
 		console.log('POST to /list successful', postResponse);
 		// clear inputs
 		$('#taskInput').val('');
-		$('#inlineCheckbox1').is(':unchecked');
-		$('#inlineCheckbox2').is(':unchecked');
+		$('#checkUrgent').prop('checked', false);
+		$('#checkImportant').prop('checked', false);
+
+		// $('#checkUrgent').is(':unchecked');
+		// $('#checkImportant').is(':unchecked');
 		// call getList function
 		getList();
 	}).catch((error) => {
@@ -100,7 +103,7 @@ function renderList(list) {
 		if(urgent && important){
 			if(completed) {
 				$('#both').append(`
-				<tr data-id=${item.id}>
+				<tr data-id=${item.id} class="completedTask">
 					<td>
 						<div class="form-check">
 							<input class="form-check-input checkbox" type="checkbox" checked>
@@ -133,7 +136,7 @@ function renderList(list) {
 		if(urgent && !important){
 			if(completed) {
 				$('#justUrgent').append(`
-				<tr data-id=${item.id}>
+				<tr data-id=${item.id} class="completedTask">
 					<td>
 						<div class="form-check">
 							<input class="form-check-input checkbox" type="checkbox" checked>
@@ -166,7 +169,7 @@ function renderList(list) {
 		if(!urgent && important){
 			if(completed) {
 				$('#justImportant').append(`
-				<tr data-id=${item.id}>
+				<tr data-id=${item.id} class="completedTask">
 					<td>
 						<div class="form-check">
 							<input class="form-check-input checkbox" type="checkbox" checked>
@@ -199,7 +202,7 @@ function renderList(list) {
 		if(!urgent && !important){
 			if(completed) {
 				$('#neither').append(`
-				<tr data-id=${item.id}>
+				<tr data-id=${item.id} class="completedTask">
 					<td>
 						<div class="form-check">
 							<input class="form-check-input checkbox" type="checkbox" checked>
