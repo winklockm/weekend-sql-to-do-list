@@ -1,43 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do</title>
-    <script src="vendors/jquery.js" charset="utf-8"></script>
-    <script src="scripts/client.js" charset="'utf-8"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/styles.css">
-</head>
-<body>
-    <header>
-        <h1>To Do List</h1>
-    </header>
-    <main>
-        <div id="listDiv">
-            <table class="table table-striped table-hover align-middle" id="taskTable">
-                <thead>
-                    <tr id="inputRow">
-                        <th class="center" style="width:10%" scope="col"></th>
-                        <th style="width:80%" scope="col" id="taskInputCell"> 
-                            <div class="input-group mb-3">
-                                <input type="text" id="taskInput" maxlength="250" class="form-control" placeholder="add a task" aria-label="New task" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-primary" type="button" id="submitButton">Add</button>
-                            </div>
-                        </th>
-                        <th style="width:10%" scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody id="listDisplay">
-                </tbody>
-              </table>
-        </div>
-    </main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,22 +18,8 @@
         <div class="container">
             <div class="row">
                 <div class="inputArea">
-                    <input type="text" id="taskInput" placeholder="What do you need to do today?">
+                    <input type="text" id="taskInput" placeholder="What do you need to do today?" maxlength="250">
                     <div class="checkboxArea">
-                        <!-- <button class="checkboxButtons" id="urgentButton">urgent</button> <button class="checkboxButtons" id="importantButton">important</button>
-                        <table>
-                            <tr>
-                                <td> <input type="checkbox" id="checkUrgent">
-                                    <label for="checkUrgent">URGENT</label>
-                                </td>
-                                <td><input type="checkbox" id="checkImportant">
-                                    <label for="checkImportant">IMPORTANT</label></td>
-                            </tr>
-                        </table>
-
- -->
-
-
                         <h2>This task is:</h2>
                         <input type="checkbox" id="checkUrgent" class="inputCheckbox">
                         <label class="checkboxLabel" for="checkUrgent">URGENT</label>
@@ -82,22 +28,7 @@
                     </div>    
                     <button id="submitButton">Add Task</button>
                 </div>
-
-                    <!-- <div class="form-group">
-                        <input type="text" class="form-control" id="taskInput" aria-describedby="inputField" placeholder="What do you need to do today?">
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1">URGENT</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2">IMPORTANT</label>
-                      </div>
-                      <div>
-                        <button id="submitButton" type="submit" class="btn btn-primary">Add</button>
-                      </div> -->
-                  
+              
             </div>
             <div class="row">
                 
@@ -112,7 +43,7 @@
                     </div>
                 </div>
                 <div id="quadJustUrgent" class="col-sm">
-                    <h3>Urgent & Not Important</h3>
+                    <h3>Urgent, Not Important</h3>
                     <div id="listDiv">
                         <!-- rows append here -->
                         <table class="table table-striped table-hover align-middle" id="taskTable">
@@ -125,7 +56,7 @@
             </div>
             <div class="row">
                 <div id="quadJustImportant" class="col-sm">
-                    <h3>Important & Not Urgent</h3>
+                    <h3>Important, Not Urgent</h3>
                     <div id="listDiv">
                         <table class="table table-striped table-hover align-middle" id="taskTable">
                             <tbody id="justImportant">
@@ -135,7 +66,7 @@
                     </div>
                 </div>
                 <div id="quadNeither" class="col-sm">
-                    <h3>Not Urgent or Important</h3>
+                    <h3>Not Important or Urgent</h3>
                     <div id="listDiv">
                         <table class="table table-striped table-hover align-middle" id="taskTable">
                             <tbody id="neither">

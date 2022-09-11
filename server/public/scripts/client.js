@@ -15,27 +15,32 @@ function onReady(){
 }
 
 function getInput() {
-	console.log('in getInput function');
-	// pull value from input and set as variable
-	let newTask = $('#taskInput').val();
-	let isUrgent;
-	let isImportant;
-	// pull urgent value and set as variable
-	if($('#checkUrgent').is(":checked")) {
-		isUrgent = true;
+	let value = $('#taskInput').val();
+	console.log('value length is:', value.length);
+	// run only if input field is filled out
+	if(value.length > 0){
+		console.log('in getInput function');
+		// pull value from input and set as variable
+		let newTask = $('#taskInput').val();
+		let isUrgent;
+		let isImportant;
+		// pull urgent value and set as variable
+		if($('#checkUrgent').is(":checked")) {
+			isUrgent = true;
+		}
+		else{
+			isUrgent = false;
+		}
+		// pull important value and set as variable
+		if($('#checkImportant').is(":checked")) {
+			isImportant = true;
+		}
+		else{
+			isImportant = false;
+		}
+		//trigger addTask function
+		addTask(newTask, isUrgent, isImportant);
 	}
-	else{
-		isUrgent = false;
-	}
-	// pull important value and set as variable
-	if($('#checkImportant').is(":checked")) {
-		isImportant = true;
-	}
-	else{
-		isImportant = false;
-	}
-	//trigger addTask function
-	addTask(newTask, isUrgent, isImportant);
 }
 
 function addTask(newTask, isUrgent, isImportant) {
