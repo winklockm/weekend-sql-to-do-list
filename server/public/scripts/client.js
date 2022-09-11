@@ -16,17 +16,35 @@ function onReady(){
 
 function getInput() {
 	console.log('in getInput function');
-	// pull values from input and set as variable
-	newTask = $('#taskInput').val();
+	// pull value from input and set as variable
+	let newTask = $('#taskInput').val();
+	let isUrgent;
+	let isImportant;
+	// pull urgent value and set as variable
+	if($('#inlineCheckbox1').is(":checked")) {
+		isUrgent = true;
+	}
+	else{
+		isUrgent = false;
+	}
+	// pull important value and set as variable
+	if($('#inlineCheckbox2').is(":checked")) {
+		isImportant = true;
+	}
+	else{
+		isImportant = false;
+	}
 	//trigger addTask function
-	addTask(newTask);
+	addTask(newTask, isUrgent, isImportant);
 }
 
-function addTask(newTask) {
+function addTask(newTask, isUrgent, isImportant) {
 	console.log('in addTask function');
 	// create object
 	let newListItem = {
 		complete: false,
+		urgent: isUrgent,
+		important: isImportant,
 		task: newTask
 	}
 	// POST request to send newTask to database
@@ -38,6 +56,8 @@ function addTask(newTask) {
 		console.log('POST to /list successful', postResponse);
 		// clear inputs
 		$('#taskInput').val('');
+		$('#inlineCheckbox1').is(':unchecked');
+		$('#inlineCheckbox2').is(':unchecked');
 		// call getList function
 		getList();
 	}).catch((error) => {

@@ -33,7 +33,7 @@ todoRouter.post('/', (req, res) => {
         INSERT INTO todoList (complete, urgent, important, task)
             VALUES ($1, $2, $3, $4);
     `;
-    pool.query(queryText, [newItem.complete, newItem.task])
+    pool.query(queryText, [newItem.complete, newItem.urgent, newItem.important, newItem.task])
         .then((postResponse) => {
             res.sendStatus(201);
         })
