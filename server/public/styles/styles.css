@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0;
 }
 
@@ -10,4 +10,112 @@ h1 {
  .center {
     text-align:center;
     vertical-align:middle;
+ } */
+
+
+body {
+    background-color: #264653 ;
+}
+
+h1 {
+ text-align: center;
+ margin: 30px;
+ color: whitesmoke
+}
+
+.col-sm {
+    padding: 1rem;
+    border: 2px solid #264653;
+    color: white;
+    text-align: center;
  }
+
+ .completedTask {
+    font-style: italic;
+    text-decoration: line-through;
+ }
+
+ #quadBoth {
+    background-color: #E76F51;
+ }
+
+ #quadJustUrgent {
+    background-color: #F4A261;
+ }
+
+ #quadJustImportant {
+    background-color: #E9C46A;
+ }
+
+ #quadNeither {
+    background-color: #2A9D8F;
+ }
+
+ .inputArea {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+ }
+
+ .checkboxArea {
+    text-align: center;
+    padding: 10px;
+ }
+
+ #taskInput {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #52c8f7;
+    border-radius: 30px;
+    transition-duration: 0.2s;
+    background-color: whitesmoke;
+    font-size: 20px;
+ }
+
+ #taskInput:hover {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #a272ba;
+    border-radius: 30px;
+ }
+
+ label {
+    color: whitesmoke;
+    font-size: 20px;
+ }
+
+ h2 {
+    color: whitesmoke;
+    font-size: 20px;
+    margin: 0;
+ }
+
+
+#submitButton {
+    transition-duration: 0.4s;
+    padding: 10px 30px 10px 30px;
+    border-radius: 20px;
+
+}
+  
+#submitButton:hover {
+    background-color: #a272ba;
+    color: white;
+}
+
+.checkboxButtons {
+    background-color: green;
+    width: 10%;
+}
+
+.inputCheckbox {
+    margin: 10px;
+}
+
+.checkboxLabel {
+    margin: 20px 20px 20px 0px;
+}
