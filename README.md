@@ -6,7 +6,7 @@
 
 Duration: 2.5 Days
 
-Do you struggle with task prioritization, or are you looking to breathe new life into your boring old "To Do" list? This application is based on the Eisenhower Matrix, prioritizing tasks based on urgency and importance. This easy-to-use interface allows you to enter in a task and quickly select whether or not it is urgent or important. Based on those attributes, your task will be added to the appropriate quadrant, helping you focus your time and attention on the taskse that need to be done now, versus ones that can wait until later.
+Do you struggle with task prioritization, or are you looking to breathe new life into your boring old "To Do" list? This application is based on the Eisenhower Matrix, prioritizing tasks based on urgency and importance. This easy-to-use interface allows you to enter in a task and quickly select whether or not it is urgent or important. Based on those attributes, your task will be added to the appropriate quadrant, helping you focus your time and attention on the tasks that need to be done now, versus ones that can wait until later.
 
 ## Screen Shot
 [Screenshot](/server/public/images/screenshot.png)

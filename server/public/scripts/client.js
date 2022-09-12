@@ -16,7 +16,7 @@ function onReady(){
 
 function getInput() {
 	let value = $('#taskInput').val();
-	console.log('value length is:', value.length);
+	// console.log('value length is:', value.length);
 	// run only if input field is filled out
 	if(value.length > 0){
 		console.log('in getInput function');
@@ -63,7 +63,6 @@ function addTask(newTask, isUrgent, isImportant) {
 		$('#taskInput').val('');
 		$('#checkUrgent').prop('checked', false);
 		$('#checkImportant').prop('checked', false);
-		hideCheckboxes();
 		// $('#checkUrgent').is(':unchecked');
 		// $('#checkImportant').is(':unchecked');
 		// call getList function
@@ -103,7 +102,7 @@ function renderList(list) {
 		let completed = item.complete;
 		let urgent = item.urgent;
 		let important = item.important;
-		console.log(`${id} is ${completed}`);
+		// console.log(`${id} is ${completed}`);
 		// if urgent and important
 		if(urgent && important){
 			if(completed) {

@@ -58,8 +58,6 @@ h1 {
 }
 
  .inputArea {
-    /* padding-top: 30px;
-    padding-bottom: 30px; */
     text-align: center;
  }
 
@@ -73,15 +71,11 @@ h1 {
     padding: 12px 20px;
     margin: 0;
     box-sizing: border-box;
-    border: 2px solid #52c8f7;
     border-radius: 30px;
     transition-duration: 0.2s;
     background-color: whitesmoke;
     font-size: 20px;
- }
-
- #taskInput:hover {
-    border: 2px solid #a272ba;
+    border: 3px solid #835c96;
  }
 
  label {
@@ -98,10 +92,15 @@ h1 {
 
 #submitButton {
    transition-duration: 0.4s;
-   background-color: #a272ba;
+   background-color: #835c96;
    padding: 10px 30px 10px 30px;
    color: white;
-   border-radius: 20px;
+   border-radius: 10px;
+   border: none;
+   margin-top: 0px;
+   margin-bottom: 30px;
+   padding-left: 100px;
+   padding-right: 100px;
 }
   
 #submitButton:hover {
@@ -135,17 +134,23 @@ h1 {
    background-color: #3a6d82;
    margin: 0;
    border-radius: 4px;
+   border: none;
 }
 
 .checkboxArea > button:hover {
-   background-color: #698a98;
-   margin: 0;
+   background-color: #3b7690;
 }
 
-.trashButton {
+.deleteButton {
    width: 40px;
    height: 40px;
-   border-radius: 20px;
+   border-radius: 10px;
+   background-color: white;
+   border: none;
+}
+
+.deleteButton:hover {
+   background-color: #d2cfce;
 }
 
 #urgentLabel {
@@ -154,4 +159,8 @@ h1 {
 
 #checkUrgent {
    margin-left: 25px;
+}
+
+.deleteCell {
+   text-align: right;
 }
