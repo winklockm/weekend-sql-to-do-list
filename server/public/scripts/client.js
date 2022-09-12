@@ -63,7 +63,7 @@ function addTask(newTask, isUrgent, isImportant) {
 		$('#taskInput').val('');
 		$('#checkUrgent').prop('checked', false);
 		$('#checkImportant').prop('checked', false);
-
+		hideCheckboxes();
 		// $('#checkUrgent').is(':unchecked');
 		// $('#checkImportant').is(':unchecked');
 		// call getList function
@@ -116,7 +116,7 @@ function renderList(list) {
 					</td>
 					<td>${item.task}</td>
 					<td class="deleteCell"> 
-					<button type="button" class="deleteButton btn btn-light">🗑</button>
+						<button class="deleteButton">🗑</button>
 					</td>
 				</tr>
 			  `)
@@ -131,7 +131,7 @@ function renderList(list) {
 					</td>
 					<td>${item.task}</td>
 					<td class="deleteCell"> 
-					<button type="button" class="deleteButton btn btn-light">🗑</button>
+						<button class="deleteButton">🗑</button>
 					</td>
 				</tr>
 			  `)
@@ -279,3 +279,22 @@ function updateComplete(idToUpdate) {
 		console.log('Error:', error);
 	})
 }
+
+// function showCheckboxes() {
+// 	console.log('in showCheckboxes');
+// 	$('.checkboxArea').show('easing');
+// }
+
+// function hideCheckboxes() {
+// 	console.log('in hideCheckboxes');
+// 	$('.checkboxArea').hide(2000);
+// }
+// //when input is clicked, show the box of class checkboxArea
+//when you click submit, the box disappears
+
+
+
+// 	$('#checkboxArea').hide( "fast");
+//   $( "#shower" ).click(function() {
+// 	$( "span" ).show( 2000 );
+//   });

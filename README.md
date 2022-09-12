@@ -31,8 +31,8 @@ Postico
 2. If the task is urgent or important, check the corresponding box
 3. Click the "Add Task" button. Based on the boxes you checked in step 2, the task will be displayed in one of four quadrants:
     Urgent and Important
-    Urgent, Not Important
     Important, Not Urgent
+    Urgent, Not Important
     Not Important or Urgent
 4. In each quadrant, click the check box to the left of the task when completed.
 5. In each quadrant, click the 🗑 button to delete the item from the list.
